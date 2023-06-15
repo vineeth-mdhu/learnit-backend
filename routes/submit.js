@@ -4,32 +4,32 @@ const supabase = require('../utils/supabaseClient')
 router.post('/', async (req, res) => {
 
     const module_id = req.body.module
-    const ans = req.body.ans
+    const qs = req.body.qs
     
-    const comptency_list = await supabase
-        .from('comptencies')
+    const comptency_size = await supabase
+        .from('modules')
         .eq('id', module_id)
+        .select('comptency_size')
 
-    var comptencies = {}
+    var comptencies = new Array(comptency_size).fill(0)
+    var count = new Array(comptency_size).fill(0)
    
-    for (skill in comptency_list){
-        comptencies[skill]={}
-        for(q in ans){
-            comptencies[skill][q]=0
-        }
-    }
-
-    for (q_id in ans) {
+    for (q_id in qs) {
         correct = supabase
             .from('questions')
             .select('ans', 'comptencies')
             .eq('id', q_id)
 
-        for (comptency in correct.comptencies) {
+        for (comptency in correct.data.comptencies) {
             if (ans[q_id] == correct.ans) {
-                comptencies[comptency][q_id] = 1
+                comptencies[comptency]+=1
+                count[comptency]+=1
             }
         }
+    }
+
+    for(let i=0;i<comptencies.length;i++){
+        comptencies[i]/count[i];
     }
 
     const update= await supabase
