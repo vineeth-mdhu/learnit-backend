@@ -2,7 +2,7 @@ const router = require('express').Router()
 const { response } = require('express')
 const supabase = require('../utils/supabaseClient')
 
-router.get('/', async (req, res) => {
+router.post('/', async (req, res) => {
     const course_id=req.body.course_id
     const {data}=await supabase
     .from('courses')
