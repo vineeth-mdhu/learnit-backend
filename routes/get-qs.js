@@ -4,6 +4,7 @@ const supabase = require('../utils/supabaseClient')
 
 router.post('/', async (req, res) => {
     const course_id=req.body.course_id
+    console.log(course_id)
     const {data}=await supabase
     .from('courses')
     .select('question_bank')
