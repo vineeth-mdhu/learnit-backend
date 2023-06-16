@@ -5,7 +5,7 @@ const submit= require('./routes/submit')
 const getQs=require('./routes/get-qs')
 const app=express()
 
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
 app.get('/',(req,res)=>{
     res.send('Hello world')
