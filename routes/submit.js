@@ -1,6 +1,5 @@
 const router = require('express').Router()
 const supabase = require('../utils/supabaseClient')
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args))
 
 router.post('/', async (req, res) => {
 
