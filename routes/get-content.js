@@ -3,7 +3,7 @@ const supabase = require('../utils/supabaseClient')
 
 router.get('/', async (req, res) => {
     stduent_id=req.id
-
+    
     state=supabase
     .from('state')
     .eq('id',stduent_id)
