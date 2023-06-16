@@ -3,19 +3,21 @@ const { response } = require('express')
 const supabase = require('../utils/supabaseClient')
 
 router.get('/', async (req, res) => {
-    module_id=req.module_id
-    questions=await supabase
-    .from('questions')
-    .eq('module_id',module_id)
-
-    var size = questions.size()
-
+    const course_id=req.body.course_id
+    const {data}=await supabase
+    .from('courses')
+    .select('question_bank')
+    .eq('course_id',course_id)
+    console.log(data)
+    var size = 20
+    var response= []
     while(size>0){
-        index=Math.floor(Math.random() * questions.size());
-        response.append(questions[index])
+        index=Math.floor(Math.random() * size);
+        response.push(data[0].question_bank[index])
+        size-=1
     }
-
-    res.statusCode(200).send(response)
+    console.log(response)
+    res.status(200).send(response)
     
 })
 

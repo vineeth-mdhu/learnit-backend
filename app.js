@@ -2,7 +2,7 @@ const express = require('express')
 const dotenv = require('dotenv')
 const bodyParser=require('body-parser')
 const submit= require('./routes/submit')
-const getContent=require('./routes/get-content')
+const getQs=require('./routes/get-qs')
 const app=express()
 
 app.use(bodyParser.json());
@@ -13,6 +13,6 @@ app.get('/',(req,res)=>{
 
 app.use('/submit',submit)
 
-app.use('/get-content',getContent)
+app.use('/get-qs',getQs)
 
 app.listen(8000)

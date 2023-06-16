@@ -1,7 +1,6 @@
 const router = require('express').Router()
 const supabase = require('../utils/supabaseClient')
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args))
-import { request } from 'urllib';
 
 router.post('/', async (req, res) => {
 
@@ -57,28 +56,7 @@ router.post('/', async (req, res) => {
 
     console.log(error)
 
-
-const url = 'http://localhost:5000/recommend'; 
-var { data, res } = await request(url);
-// result: { data: Buffer, res: Response }
-console.log('status: %s, body size: %d, headers: %j', res.status, data.length, res.headers);
-
-// fetch(url)
-//   .then(response => {
-//     if (response.ok) {
-//       return response.json();
-//     } else {
-//       throw new Error('Request failed with status: ' + response.status);
-//     }
-//   })
-//   .then(data => {
-//     console.log(data); // Handle the response from the Flask API
-//   })
-//   .catch(error => {
-//     console.error(error); // Handle any error that occurred during the request
-//   });
-
-res.status(200).send()
+    res.status(200).send()
 
 })
 
