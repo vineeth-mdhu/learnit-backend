@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
     console.log(req)
     console.log(course_id,student_id,qs)
 
-    const map_level={"Easy":0.5,"Medium":1,"Hard":2}
+    const map_level={"Easy":0.3,"Medium":0.6,"Hard":1}
     var comptencies = new Array(comptency_size).fill(0)
     var count = new Array(comptency_size).fill(0)
 
