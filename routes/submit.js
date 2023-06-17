@@ -7,7 +7,7 @@ router.post('/', async (req, res) => {
     const student_id= req.body.student_id
     const qs=req.body.qs
     const comptency_size = 6
-
+    console.log(req)
     console.log(course_id,student_id,qs)
 
     const map_level={"Easy":0.5,"Medium":1,"Difficult":2}
