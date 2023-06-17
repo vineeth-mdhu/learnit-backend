@@ -3,8 +3,10 @@ const dotenv = require('dotenv')
 const bodyParser=require('body-parser')
 const submit= require('./routes/submit')
 const getQs=require('./routes/get-qs')
+const cors = require('cors')
 const app=express()
 
+app.use(cors)
 app.use(bodyParser.json());
 
 app.get('/',(req,res)=>{
