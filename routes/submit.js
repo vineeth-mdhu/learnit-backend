@@ -27,7 +27,9 @@ router.post('/', async (req, res) => {
             for (const s in element['skills']) {
                 comptencies[s]+=map_level[element['difficulty']]
                 count[s]+=1
+                
             }
+            console.log(comptencies)
         }
     });
 
