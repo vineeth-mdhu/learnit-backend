@@ -12,10 +12,14 @@ router.post('/', async (req, res) => {
     console.log(data)
     var size = 20
     var response= []
+    var items= new Set()
     while(size>0){
         index=Math.floor(Math.random() * size);
+        if(!items.has(index)){
         response.push(data[0].question_bank[index])
+        items.add(index)
         size-=1
+        }
     }
     console.log(response)
     res.status(200).send(response)
