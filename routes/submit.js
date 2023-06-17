@@ -49,6 +49,7 @@ router.post('/', async (req, res) => {
     .from('state')
     .update({'next_state':comptencies,'current_state':current_state})
     .eq('student_id',student_id)
+    .eq('course_id',course_id)
 
 
     console.log(error)
