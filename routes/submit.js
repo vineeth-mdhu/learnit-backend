@@ -25,8 +25,10 @@ router.post('/', async (req, res) => {
     qs.forEach(element => {
         console.log(element['correct'])
         if(element['correct']){
+            console.log(element['skills'])
             for (var s in element['skills']) {
                 s=parseInt(s)
+                console.log(s)
                 comptencies[s]+=map_level[element['difficulty']]
                 count[s]+=1
                 
