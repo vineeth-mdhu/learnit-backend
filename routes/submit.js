@@ -23,6 +23,7 @@ router.post('/', async (req, res) => {
     console.log(current_state)
 
     qs.forEach(element => {
+        console.log(element['correct'])
         if(element['correct']){
             for (const s in element['skills']) {
                 comptencies[s]+=map_level[element['difficulty']]
